@@ -69,7 +69,7 @@ const Hero = () => {
           </div>
           <div
             style={{
-              clipPath: "polygon(50% 0,  50% 0, 50% 100%, 50% 100%)",
+              clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
             }}
             className="hero-text-scroll"
           >
