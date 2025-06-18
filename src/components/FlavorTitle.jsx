@@ -29,7 +29,16 @@ const FlavorTitle = () => {
       scrollTrigger: {
         trigger: ".flavor-section",
         start: "top 10%",
-        markers: true,
+      },
+    });
+
+    gsap.from(secondText.chars, {
+      yPercent: 200,
+      stagger: 0.02,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: ".flavor-section",
+        start: "top 1%",
       },
     });
   });

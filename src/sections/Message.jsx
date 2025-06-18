@@ -57,11 +57,10 @@ const Message = () => {
     // });
 
     gsap.to(".msg-text-scroll", {
-      delay: 1,
+      delay: 0.5,
       scrollTrigger: {
         trigger: ".msg-text-scroll",
         start: "top 60%",
-        scrub: true,
       },
       ease: "circ.inOut",
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -72,7 +71,6 @@ const Message = () => {
         trigger: ".message-content",
         start: "70% center",
         end: "bottom center",
-        scrub: true
       },
     });
 
