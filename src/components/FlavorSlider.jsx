@@ -2,28 +2,34 @@ import React, { useRef } from "react";
 import { flavorlists } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
 
 const FlavorSlider = () => {
   const sliderRef = useRef();
 
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1024px)",
+  });
+
   useGSAP(() => {
     const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".flavor-section",
-        start: "2% top",
-        end: `+=${scrollAmount + 1000}px`,
-        scrub: true,
-        pin: true,
-        markers: true,
-      },
-    });
+    if (!isTablet) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".flavor-section",
+          start: "2% top",
+          end: `+=${scrollAmount + 1000}px`,
+          scrub: true,
+          pin: true,
+        },
+      });
 
-    tl.to(".flavor-section", {
-      x: `-${scrollAmount + 1000}px`,
-      ease: "power1.inOut",
-    });
+      tl.to(".flavor-section", {
+        x: `-${scrollAmount + 1000}px`,
+        ease: "power1.inOut",
+      });
+    }
 
     const titleTimeline = gsap.timeline({
       scrollTrigger: {
@@ -47,10 +53,14 @@ const FlavorSlider = () => {
         },
         "<" //this is a position paramater which means this animation will start the same time as the previous one
       )
-      .to(".secon-text-split", {
-        xPercent: -10,
-        ease: "power1.inOut",
-      }, "<");
+      .to(
+        ".second-text-split",
+        {
+          xPercent: -10,
+          ease: "power1.inOut",
+        },
+        "<"
+      );
   });
 
   return (
