@@ -10,6 +10,7 @@ import Nutrition from "./sections/Nutrition";
 import Benefits from "./sections/Benefits";
 import Testimonial from "./sections/Testimonial";
 import Footer from "./sections/Footer";
+import MobileGuard from "./components/MobileGuard";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -23,6 +24,7 @@ const App = () => {
 
   return (
     <main>
+      <MobileGuard />
       <Navbar />
       <div id="smooth-wrapper">
         <div id="smooth-content">
